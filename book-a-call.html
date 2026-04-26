@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>Schedule Your Strategy Call · Newly Booked</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">STEP 2 OF 2 · <strong>YOU QUALIFIED</strong></div>
+
+<nav class="nb-nav">
+  <div class="wrap nav-inner">
+    <a href="apply.html" class="brand"><img src="logo.png" alt="Newly Booked"></a>
+    <a href="apply.html" class="nav-cta">← Restart</a>
+  </div>
+</nav>
+
+<section class="subhero">
+  <div class="wrap">
+    <div class="section-eye">Final Step</div>
+    <h1>Schedule your <span class="blue">partnership analysis</span></h1>
+    <p>Pick a time that works. Our partnership advisor will walk you through the model, audit your current acquisition, and show you exactly what we'd build for your clinic.</p>
+  </div>
+</section>
+
+<section style="padding:24px 0 80px">
+  <div class="wrap" style="max-width:880px">
+
+    <div class="form-card">
+      <div class="form-body">
+
+        <div style="margin-bottom:20px;text-align:center">
+          <div style="font-weight:700;font-size:24px;letter-spacing:-.005em;color:var(--ink)">45 minute strategy call</div>
+          <div style="margin-top:6px;font-size:13.5px;color:var(--muted)">Free · No obligation · Conducted via Zoom</div>
+        </div>
+
+        <div class="cal" style="border:none;padding:0;box-shadow:none">
+          <div class="cal-head">
+            <button type="button" class="cal-nav" id="prev-month">← Prev</button>
+            <strong id="month-label">May 2026</strong>
+            <button type="button" class="cal-nav" id="next-month">Next →</button>
+          </div>
+
+          <div class="cal-grid cal-head-row">
+            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+          </div>
+          <div class="cal-grid" id="cal-days"></div>
+
+          <div id="slots-wrap" style="display:none;margin-top:18px">
+            <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;text-align:left;font-weight:600">
+              Available times · <span id="slot-date" style="color:var(--ink-2)"></span>
+            </div>
+            <div class="slots" id="slots"></div>
+          </div>
+        </div>
+
+        <button type="button" class="cta" id="confirm-btn" style="margin-top:24px;opacity:.4;pointer-events:none">
+          CONFIRM APPOINTMENT
+          <svg width="18" height="10" viewBox="0 0 18 10" fill="none"><path d="M1 5h15m0 0L12 1m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <p class="fine">By booking you agree to receive reminder SMS and email. Show up is required. No shows cannot be rescheduled.</p>
+      </div>
+    </div>
+
+    <div class="steps" style="margin-top:48px">
+      <div class="stepc"><div class="num">1</div><h4>What we'll cover</h4><p>Live audit of your current acquisition, a 90 day projection, and the exact creative and funnel we'd build for your clinic.</p></div>
+      <div class="stepc"><div class="num">2</div><h4>Who you'll speak with</h4><p>A senior partnership advisor, not a junior setter. They've helped 147 clinics scale and will give you actionable advice regardless of fit.</p></div>
+      <div class="stepc"><div class="num">3</div><h4>How to prepare</h4><p>Have your current monthly revenue, average patient ticket, and existing acquisition channels ready. That's it.</p></div>
+      <div class="stepc"><div class="num">4</div><h4>What happens next</h4><p>If we both feel it's a fit, we'll outline the partnership terms on the call. No pressure, no hard close.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand"><img src="logo.png" alt="Newly Booked"></div>
+    <div class="foot-links">© 2026 Newly Booked <a href="faq.html">FAQ</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  (() => {
+    const monthLabel = document.getElementById('month-label');
+    const daysEl = document.getElementById('cal-days');
+    const slotsWrap = document.getElementById('slots-wrap');
+    const slotsEl = document.getElementById('slots');
+    const slotDate = document.getElementById('slot-date');
+    const confirm = document.getElementById('confirm-btn');
+    let view = new Date(); view.setDate(1);
+    let selectedDate = null, selectedSlot = null;
+
+    function render(){
+      monthLabel.textContent = view.toLocaleString('en-US',{month:'long',year:'numeric'});
+      daysEl.innerHTML = '';
+      const start = new Date(view); start.setDate(1);
+      const offset = start.getDay();
+      const dim = new Date(view.getFullYear(), view.getMonth()+1, 0).getDate();
+      const today = new Date(); today.setHours(0,0,0,0);
+      for (let i=0;i<offset;i++) daysEl.insertAdjacentHTML('beforeend','<div></div>');
+      for (let d=1;d<=dim;d++){
+        const date = new Date(view.getFullYear(), view.getMonth(), d);
+        const past = date < today;
+        const weekend = date.getDay()===0 || date.getDay()===6;
+        const taken = past || weekend || (d % 7 === 3);
+        daysEl.insertAdjacentHTML('beforeend',`<div class="day${taken?' taken':''}" data-d="${date.toISOString()}">${d}</div>`);
+      }
+      daysEl.querySelectorAll('.day:not(.taken)').forEach(el=>{
+        el.addEventListener('click',()=>{
+          daysEl.querySelectorAll('.day').forEach(d=>d.classList.remove('sel'));
+          el.classList.add('sel');
+          selectedDate = new Date(el.dataset.d);
+          slotDate.textContent = selectedDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+          slotsEl.innerHTML = ['9:00 AM','10:30 AM','12:00 PM','2:00 PM','3:30 PM','5:00 PM']
+            .map(t=>`<div class="slot">${t}</div>`).join('');
+          slotsWrap.style.display='block';
+          slotsEl.querySelectorAll('.slot').forEach(s=>s.addEventListener('click',()=>{
+            slotsEl.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));
+            s.classList.add('sel'); selectedSlot = s.textContent;
+            confirm.style.opacity = 1; confirm.style.pointerEvents='auto';
+          }));
+        });
+      });
+    }
+    document.getElementById('prev-month').addEventListener('click',()=>{view.setMonth(view.getMonth()-1);render()});
+    document.getElementById('next-month').addEventListener('click',()=>{view.setMonth(view.getMonth()+1);render()});
+    confirm.addEventListener('click',()=>{
+      if (!selectedDate || !selectedSlot) return;
+      sessionStorage.setItem('nb-booking', JSON.stringify({date:selectedDate,slot:selectedSlot}));
+      window.location.href='thank-you.html';
+    });
+    render();
+  })();
+</script>
+</body>
+</html>

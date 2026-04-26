@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>You're Booked · Newly Booked</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">CONFIRMED · <strong>LOOKING FORWARD</strong></div>
+
+<nav class="nb-nav">
+  <div class="wrap nav-inner">
+    <a href="apply.html" class="brand"><img src="logo.png" alt="Newly Booked"></a>
+  </div>
+</nav>
+
+<section class="subhero">
+  <div class="wrap">
+    <div class="section-eye">Your Spot Is Held</div>
+    <h1>You're <span class="blue">booked.</span></h1>
+    <p id="confirm-line">Your partnership analysis is scheduled. We've sent a confirmation to your email and SMS reminders are on the way.</p>
+  </div>
+</section>
+
+<section style="padding:24px 0 64px">
+  <div class="wrap" style="max-width:880px">
+
+    <div class="form-card">
+      <div class="form-body">
+        <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;font-weight:700">Required Prep, Five Minutes</div>
+        <h3 style="font-weight:800;font-size:28px;line-height:1.05;letter-spacing:-.01em;color:var(--ink)">Watch this <span style="color:var(--blue)">before</span> the call.</h3>
+        <p style="margin-top:10px;color:var(--muted);font-size:14.5px">Most successful clinics watch this twice. It's the single biggest predictor of getting value out of the call.</p>
+
+        <div class="video-frame">
+          <div class="play"></div>
+          <div class="label">Pre call brief, 4 min 52 sec</div>
+        </div>
+
+        <a href="#" class="cta">ADD TO GOOGLE CALENDAR
+          <svg width="18" height="10" viewBox="0 0 18 10" fill="none"><path d="M1 5h15m0 0L12 1m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </a>
+        <p class="fine">⚠ If you no show, you cannot reschedule. We hold one slot per applicant.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:64px">
+      <div class="section-eye">Partner Interviews</div>
+      <h2 class="title" style="font-size:clamp(26px,4.5vw,40px)">Hear what other clinics <span class="blue">did</span> with this call</h2>
+
+      <div class="test-grid">
+        <figure class="test"><div><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote>"I almost didn't take the call. Best 45 minutes I've spent on my business this year."</blockquote><span class="result">+$84K MRR · 90 days</span></div><figcaption class="who"><div class="avatar">A</div><div><strong>Amélie L.</strong><small>Maison Skin · Miami</small></div></figcaption></figure>
+        <figure class="test"><div><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote>"They gave me actionable advice on the call even though we hadn't signed yet. That's when I knew."</blockquote><span class="result">$50K to $150K · 8 weeks</span></div><figcaption class="who"><div class="avatar">M</div><div><strong>Marisol V.</strong><small>Avenue Aesthetics · NYC</small></div></figcaption></figure>
+        <figure class="test"><div><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote>"The audit alone was worth it. They showed me three holes in my funnel I never would have caught."</blockquote><span class="result">+32 patients · 14 days</span></div><figcaption class="who"><div class="avatar">S</div><div><strong>Sienna K.</strong><small>Reverie Medspa · Austin</small></div></figcaption></figure>
+      </div>
+    </div>
+
+    <div style="margin-top:64px">
+      <div class="section-eye">Common Questions</div>
+      <h2 class="title" style="font-size:clamp(26px,4.5vw,40px)">Before the call</h2>
+      <div class="faq">
+        <details open><summary>What should I bring?</summary><p>Your last 3 months of revenue, your average patient ticket, and a rough sense of where your patients currently come from.</p></details>
+        <details><summary>Will you try to sell me?</summary><p>We'll see if there's a fit. If there isn't, we'll tell you straight and still leave you with actionable advice.</p></details>
+        <details><summary>What if I need to reschedule?</summary><p>You can reschedule once via the link in your confirmation email. After that we cannot accommodate. We hold a single slot per applicant.</p></details>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand"><img src="logo.png" alt="Newly Booked"></div>
+    <div class="foot-links">Need help? <a href="mailto:ivan@newlybooked.com">ivan@newlybooked.com</a><a href="tel:+13323223106">+1 332 322 3106</a></div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  try {
+    const b = JSON.parse(sessionStorage.getItem('nb-booking'));
+    if (b){
+      const d = new Date(b.date).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+      document.getElementById('confirm-line').innerHTML =
+        `Your partnership analysis is scheduled for <strong>${d} at ${b.slot}</strong>. Confirmation sent to your email; SMS reminders are on the way.`;
+    }
+  } catch(_){}
+</script>
+</body>
+</html>

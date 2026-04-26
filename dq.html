@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>Application Update · Newly Booked</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nb-nav">
+  <div class="wrap nav-inner">
+    <a href="apply.html" class="brand"><img src="logo.png" alt="Newly Booked"></a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="center-card">
+    <div class="icon">!</div>
+    <h1>Not a fit, <span class="blue">just yet</span></h1>
+    <p class="lede" id="dq-line">Based on your application you don't meet our current criteria. We partner exclusively with established med spas doing $10K and above per month, and we want to be honest about fit rather than waste your time.</p>
+
+    <div style="margin:36px 0;padding:24px;background:#fff;border:1px solid var(--line);text-align:left;border-radius:12px">
+      <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;font-weight:700">What we recommend instead</div>
+      <p style="font-size:15px;line-height:1.65;color:var(--ink-2)">If you're <strong>under $10K per month</strong> or just opening, focus on:</p>
+      <ul style="margin:14px 0 0 22px;font-size:14.5px;color:var(--muted);line-height:1.8">
+        <li>Building consistent organic content (Instagram and TikTok, five times per week)</li>
+        <li>Implementing a referral program with existing patients</li>
+        <li>Optimizing your in clinic upsell on every visit</li>
+        <li>Reaching out again once you cross $10K per month. We'd love to talk.</li>
+      </ul>
+    </div>
+
+    <p style="font-size:13.5px;color:var(--muted);margin-top:18px">
+      Questions? <a href="mailto:ivan@newlybooked.com" style="color:var(--blue);text-decoration:underline">ivan@newlybooked.com</a>
+    </p>
+
+    <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="testimonials.html" class="back">Read partner stories →</a>
+      <a href="apply.html" class="back">Restart application →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand"><img src="logo.png" alt="Newly Booked"></div>
+    <div class="foot-links">© 2026 Newly Booked <a href="faq.html">FAQ</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const r = params.get('reason');
+  const line = document.getElementById('dq-line');
+  if (r === 'ownership'){
+    line.innerHTML = "Our system is built specifically for owners and operators of established med spas or aesthetic clinics. If you're planning to open one, reach out once you're 30 days from launch and we'll see if there's a fit.";
+  } else if (r === 'revenue'){
+    line.innerHTML = "We partner exclusively with clinics doing <strong>$10K and above per month</strong> in revenue. The revenue partnership and ad spend requirements only make sense at that level. Reach out once you cross that threshold. We'd love to.";
+  }
+</script>
+</body>
+</html>
