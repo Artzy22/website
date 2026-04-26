@@ -511,3 +511,177 @@ footer{padding:36px 0;background:var(--navy);border-top:1px solid var(--navy-sof
 /* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
+
+/* ═══════════════════════════════════════════════
+   Mobile optimizations (phones, ≤640px)
+   ═══════════════════════════════════════════════ */
+@media(max-width:640px){
+  body{font-size:15.5px}
+  .wrap{padding:0 16px}
+
+  /* topbar — smaller, tighter */
+  .topbar{font-size:10.5px;letter-spacing:.14em;padding:9px 12px;line-height:1.35}
+
+  /* nav — slightly tighter */
+  nav.nb-nav{padding:10px 0}
+  .brand img{height:42px}
+  .nav-cta{padding:8px 14px;font-size:11px;letter-spacing:.12em}
+
+  /* hero — much tighter */
+  .hero{padding:32px 0 18px}
+  .eyebrow{font-size:10.5px;letter-spacing:.16em;padding:6px 12px;margin-bottom:14px}
+  h1.headline{font-size:32px;line-height:1.05;letter-spacing:-.02em}
+  .subhead{margin-top:14px;font-size:15px;line-height:1.5}
+  .proof-bar{
+    margin-top:20px;padding:8px 12px;gap:8px;font-size:11.5px;
+    width:100%;justify-content:space-around;
+  }
+  .proof-bar > span{padding:6px 8px;gap:6px;flex:1;justify-content:center;text-align:center}
+  .proof-bar > span + span{border-left:none}
+  .proof-bar .check{width:14px;height:14px;font-size:9px}
+
+  /* form — full bleed, less padding */
+  .form-shell{padding:18px 0 28px}
+  .form-card{border-radius:10px}
+  .form-body{padding:24px 18px 20px}
+  .progress{margin-bottom:18px;gap:4px}
+  .progress span{height:3px}
+  .q{font-size:18px;margin-bottom:5px;line-height:1.25}
+  .help{font-size:13px;margin-bottom:14px;line-height:1.5}
+  .field{margin-bottom:12px}
+  .field input,.field select,.field textarea{padding:13px 12px;border-radius:8px}
+  .field label{font-size:12px;margin-bottom:5px}
+  .opts{gap:8px}
+  .opt{padding:14px 14px;font-size:14px;border-radius:8px}
+  .opt .check{width:20px;height:20px}
+  .chips{gap:6px}
+  .chip{padding:8px 13px;font-size:13px}
+  .consent{font-size:11.5px;line-height:1.5;margin-top:10px}
+  .actions{margin-top:18px;gap:10px}
+  .cta{padding:15px 18px;font-size:13px;letter-spacing:.1em;border-radius:8px;min-height:50px}
+  .cta svg{width:16px;height:9px}
+  .back{font-size:12px;padding:8px 2px}
+  .fine{font-size:11px;margin-top:10px;line-height:1.5}
+
+  /* trustpilot */
+  .trust{padding:18px 12px 24px}
+  .trust-row{font-size:12.5px;gap:8px}
+  .trust-meta{font-size:11.5px;margin-top:8px}
+
+  /* stats — smaller numbers */
+  .stat{padding:22px 12px}
+  .stat .n{font-size:30px}
+  .stat .l{font-size:10.5px;letter-spacing:.1em;margin-top:5px}
+
+  /* band */
+  .band{padding:36px 16px}
+  .band h3{font-size:21px;line-height:1.2}
+  .band p{margin-top:8px;font-size:13.5px;line-height:1.55}
+
+  /* sections — way tighter */
+  section{padding:44px 0}
+  .section-eye{font-size:11px;letter-spacing:.16em;margin-bottom:8px}
+  h2.title{font-size:26px;line-height:1.15;letter-spacing:-.018em}
+  .sub{margin-top:10px;font-size:14.5px;line-height:1.5}
+
+  /* steps */
+  .steps{margin-top:32px;gap:12px}
+  .stepc{padding:20px 18px;border-radius:10px}
+  .stepc .num{width:32px;height:32px;font-size:14px;margin-bottom:10px;border-radius:8px}
+  .stepc h4{font-size:15.5px;margin-bottom:5px}
+  .stepc p{font-size:13.5px;line-height:1.55}
+
+  /* compare */
+  .compare{margin-top:32px;border-radius:10px}
+  .col{padding:24px 22px}
+  .col h4{font-size:16.5px;margin-bottom:12px}
+  .col li{padding:8px 0;font-size:13.5px;line-height:1.45}
+
+  /* testimonial cards */
+  .test-grid{margin-top:32px;gap:12px}
+  .test{padding:20px 18px;min-height:auto;border-radius:10px}
+  .test blockquote{font-size:14.5px;line-height:1.5}
+  .test .who{margin-top:14px;padding-top:12px;gap:10px}
+  .test .who strong{font-size:13.5px}
+  .test .who small{font-size:11px;letter-spacing:.04em}
+  .avatar{width:36px;height:36px;font-size:14px}
+  .test .result{font-size:12px;padding:3px 9px;margin-top:8px}
+  .test .stars{margin-bottom:10px}
+  .stars .star{width:15px;height:15px}
+  .stars .star::before{font-size:10px}
+
+  /* faq */
+  .faq{margin-top:24px}
+  .faq details{padding:16px 4px}
+  .faq summary{font-size:15.5px;gap:14px}
+  .faq summary::after{font-size:22px}
+  .faq details p{font-size:13.5px;margin-top:8px;line-height:1.55}
+
+  /* final */
+  .final{padding:56px 18px}
+  .final h2{font-size:30px;line-height:1.05}
+  .final p{margin:12px auto 22px;font-size:14.5px}
+  .final .cta{min-width:0;width:100%}
+
+  /* footer */
+  footer{padding:24px 0}
+  .foot{flex-direction:column;align-items:flex-start;gap:10px;font-size:11.5px}
+  .foot-links a{margin-left:0;margin-right:14px}
+
+  /* sub hero (faq, testimonials, dq, thank-you) */
+  .subhero{padding:40px 0 24px}
+  .subhero h1{font-size:36px;line-height:1.05}
+  .subhero p{margin-top:14px;font-size:14.5px;line-height:1.55}
+
+  /* center card (dq, thank-you) */
+  .center-card{margin:32px auto;padding:36px 22px;border-radius:10px}
+  .center-card h1{font-size:30px;line-height:1.05}
+  .center-card .lede{font-size:14.5px;margin-top:14px}
+  .center-card .icon{width:50px;height:50px;font-size:20px;margin-bottom:18px}
+
+  /* video frame */
+  .video-frame{margin:24px 0;border-radius:10px}
+  .video-frame .play{width:56px;height:56px}
+  .video-frame .play::after{border-width:8px 0 8px 13px;margin-left:3px}
+  .video-frame .label{bottom:12px;left:14px;font-size:12px}
+
+  /* calendar */
+  .cal{padding:18px 14px;border-radius:10px}
+  .cal-head strong{font-size:16px}
+  .cal-nav{padding:5px 11px;font-size:11px}
+  .cal-grid{gap:4px}
+  .day{font-size:12px;border-radius:6px}
+  .slots{gap:6px}
+  .slot{padding:10px;font-size:12px}
+
+  /* exit popup */
+  .exit-overlay{padding:12px;align-items:flex-start}
+  .exit-card{margin:12px auto;border-radius:12px}
+  .exit-head{padding:28px 22px 24px;border-radius:11px 11px 0 0}
+  .exit-head h3{font-size:22px;line-height:1.15}
+  .exit-head p{margin-top:8px;font-size:13px}
+  .exit-tag{font-size:10px;letter-spacing:.22em}
+  .exit-close{top:10px;right:10px;width:30px;height:30px;font-size:18px}
+  .exit-card .form-body{padding:22px 18px 18px}
+
+  /* sticky cta */
+  .sticky-cta{padding:11px 14px calc(11px + env(safe-area-inset-bottom));gap:10px}
+  .sticky-cta strong{font-size:14px}
+  .sticky-cta a{padding:9px 14px;font-size:10.5px;letter-spacing:.14em;border-radius:6px}
+
+  /* text-cta */
+  .text-cta{padding:9px 16px;font-size:11.5px;letter-spacing:.12em}
+
+  /* callout */
+  .callout{margin-top:32px;padding:24px 20px;border-radius:10px}
+  .callout h3{font-size:17px;margin-bottom:8px}
+  .callout p{font-size:13.5px;line-height:1.6}
+}
+
+/* very small phones (≤380px) */
+@media(max-width:380px){
+  h1.headline{font-size:28px}
+  .opt{font-size:13.5px;padding:13px 13px}
+  .chip{padding:7px 11px;font-size:12.5px}
+  .form-body{padding:20px 14px 18px}
+}
